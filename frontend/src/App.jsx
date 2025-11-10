@@ -6,6 +6,10 @@ import bg_home from './assets/bg.jpg'
 export default function App() {
   const scrollTo = (id) => {
     const section = document.getElementById(id)
+    if(id == 'inicio') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
     section?.scrollIntoView({ behavior: 'smooth' })
   }
 
@@ -41,7 +45,7 @@ export default function App() {
       </section>
 
       <footer className="footer">
-        <p>© 2025 HydroSense. Todos los derechos reservados.</p>
+        <p>© {new Date().getFullYear()} HydroSense. Todos los derechos reservados.</p>
       </footer>
     </div>
   )

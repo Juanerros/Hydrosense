@@ -27,7 +27,7 @@ export default function Contacto() {
 
           <div className="form-group">
             <label>Cantidad</label>
-            <input type="number" placeholder="1" min="1" required />
+            <input type="number" placeholder="1" min="0" step="1" required />
           </div>
 
           <div className="form-group">
