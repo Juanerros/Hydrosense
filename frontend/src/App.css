@@ -5,17 +5,84 @@
   --color-bg: #f6f3e8;
 }
 
+/* Scrollbar estilizado */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #e5e2d7;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-accent), #00c3ff);
+}
+
+/* ===================== ANIMACIONES ===================== */
+
+/* Fade general del body */
 body {
   margin: 0;
   background-color: var(--color-bg);
   font-family: "Nunito Sans", sans-serif;
   color: var(--color-secondary);
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeBodyIn 1.5s ease forwards;
 }
 
-h1, h2, h3 {
+@keyframes fadeBodyIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in & slide-up secuencial */
+.fade-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-delay-1 {
+  transition-delay: 0.2s;
+}
+.fade-delay-2 {
+  transition-delay: 0.4s;
+}
+.fade-delay-3 {
+  transition-delay: 0.6s;
+}
+
+/* ===================== TIPOGRAFÍA ===================== */
+
+h1,
+h2,
+h3 {
   font-family: "Poppins", sans-serif;
 }
 
+/* ===================== HEADER ===================== */
 .header {
   position: sticky;
   top: 0;
@@ -26,15 +93,14 @@ h1, h2, h3 {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 3rem;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: background-color 0.5s ease, padding 0.3s ease;
 }
-
 .logo {
   font-weight: 700;
   font-size: 1.5rem;
   color: var(--color-primary);
 }
-
 .nav button {
   background: none;
   border: none;
@@ -44,11 +110,11 @@ h1, h2, h3 {
   color: var(--color-secondary);
   transition: color 0.3s;
 }
-
 .nav button:hover {
   color: var(--color-accent);
 }
 
+/* ===================== HERO ===================== */
 .hero {
   display: flex;
   align-items: center;
@@ -57,85 +123,233 @@ h1, h2, h3 {
   background-color: var(--color-bg);
   min-height: 90vh;
 }
-
 .hero-text {
   max-width: 50%;
 }
-
 .hero-text h1 {
   font-size: 2.8rem;
   color: var(--color-primary);
 }
-
 .hero-text p {
   font-size: 1.1rem;
   line-height: 1.6;
 }
-
+.btn-primary {
+  margin-top: 1.5rem;
+  background: linear-gradient(135deg, #028aae, #00c3ff);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
 .hero-image {
   width: 40%;
   border-radius: 8px;
+  transition: transform 0.8s ease;
+}
+.hero-image:hover {
+  transform: scale(1.02);
 }
 
+/* ===================== ABOUT US ===================== */
+.quienes-container {
+  padding: 6rem 3rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f0f8f8 100%);
+  text-align: center;
+}
+.quienes-container h2 {
+  color: var(--color-primary);
+  font-size: 2.3rem;
+  margin-bottom: 1rem;
+}
+.quienes-container .intro {
+  font-size: 1.15rem;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  color: var(--color-secondary);
+  line-height: 1.7;
+}
+.valores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.valor {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(1, 58, 66, 0.08);
+  max-width: 300px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.valor:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(2, 138, 174, 0.15);
+}
+.valor-icon {
+  font-size: 2.2rem;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+.valor h3 {
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+.valor p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-secondary);
+}
+
+/* ===================== PRODUCTOS ===================== */
 .productos-container {
   padding: 4rem 3rem;
 }
-
 .productos-container h2 {
   text-align: center;
   color: var(--color-primary);
   margin-bottom: 3rem;
 }
-
 .producto {
   display: flex;
   align-items: center;
   margin-bottom: 10rem;
   gap: 3rem;
 }
-
 .producto.reverse {
   flex-direction: row-reverse;
 }
-
 .producto img {
   width: 45%;
   height: 50vh;
   border-radius: 10px;
+  transition: transform 0.4s ease;
 }
-
+.producto img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(2, 138, 174, 0.2);
+}
 .producto .info {
   max-width: 50%;
+  transition: transform 0.4s ease;
 }
-
+.producto:hover .info {
+  transform: translateY(-5px);
+}
 .producto .precio {
   color: var(--color-accent);
   font-size: 1.3rem;
   margin-top: 1rem;
 }
 
+.titulo-seccion {
+  font-size: 2.8rem;
+  text-align: center;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.intro-productos {
+  text-align: center;
+  color: var(--color-secondary);
+  max-width: 750px;
+  margin: 0 auto 4rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+.nombre-producto {
+  font-size: 1.9rem;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+.producto .info p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-secondary);
+}
+.producto ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0;
+}
+.producto ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+.producto ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: bold;
+}
+.producto .beneficio {
+  margin-top: 1rem;
+  font-style: italic;
+  color: var(--color-primary);
+  font-size: 1rem;
+}
+.producto .precio {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-top: 0.5rem;
+  text-shadow: 0 1px 3px rgba(2, 138, 174, 0.2);
+}
+
+/* Botón de producto */
+.btn-producto {
+  display: inline-block;
+  margin-top: 1rem;
+  background: linear-gradient(135deg, var(--color-accent), #00c3ff);
+  color: white;
+  font-weight: 700;
+  padding: 0.9rem 1.8rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btn-producto:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+  box-shadow: 0 5px 20px rgba(2, 138, 174, 0.25);
+}
+
+/* ===================== CONTACTO ===================== */
 .contacto-section {
   background-color: var(--color-bg);
   color: var(--color-secondary);
   padding: 6rem 2rem;
   text-align: center;
-  font-family: "Nunito Sans", sans-serif;
 }
-
 .contacto-title {
-  font-family: "Poppins", sans-serif;
   color: var(--color-primary);
   font-size: 2.4rem;
   margin-bottom: 0.5rem;
 }
-
 .contacto-subtitle {
   font-size: 1.2rem;
   margin-bottom: 3rem;
   color: var(--color-secondary);
   line-height: 1.6;
 }
-
 .contacto-container {
   display: flex;
   justify-content: center;
@@ -145,29 +359,71 @@ h1, h2, h3 {
   max-width: 1100px;
   margin: 0 auto;
 }
-
 .contacto-form {
   flex: 1;
-  min-width: 320px;
+  min-width: 340px;
   max-width: 480px;
   background-color: #ffffff;
-  padding: 2.5rem;
+  padding: 2.5rem 2.2rem;
   border-radius: 20px;
-  box-shadow: 0 3px 20px rgba(1, 58, 66, 0.08);
-  text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 25px rgba(1, 58, 66, 0.08);
+  position: relative;
+  overflow: hidden;
 }
 
+.contacto-form input,
+.contacto-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Animación de envío */
+.contacto-form.sending::after {
+  content: "Enviando...";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  animation: fadeIn 0.3s ease forwards;
+  z-index: 10;
+}
+
+/* Animación de éxito */
+.mensaje-exito {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(2, 138, 174, 0.1);
+  border: 1px solid rgba(2, 138, 174, 0.3);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.icono-check {
+  font-size: 1.5rem;
+  color: var(--color-accent);
+}
 .contacto-form:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 25px rgba(1, 58, 66, 0.1);
 }
-
 .contacto-form .form-group {
   position: relative;
   margin-bottom: 1.5rem;
 }
-
 .contacto-form label {
   position: absolute;
   top: -8px;
@@ -178,7 +434,6 @@ h1, h2, h3 {
   color: var(--color-primary);
   font-weight: 600;
 }
-
 .contacto-form input,
 .contacto-form select,
 .contacto-form textarea {
@@ -187,18 +442,14 @@ h1, h2, h3 {
   border: 1px solid rgba(12, 86, 85, 0.2);
   border-radius: 12px;
   font-size: 1rem;
-  font-family: "Nunito Sans", sans-serif;
   outline: none;
   transition: all 0.3s ease;
 }
-
 .contacto-form input:focus,
-.contacto-form select:focus,
 .contacto-form textarea:focus {
   border-color: var(--color-accent);
   box-shadow: 0 0 8px rgba(2, 138, 174, 0.25);
 }
-
 .contacto-form button {
   width: 100%;
   background: linear-gradient(135deg, #028aae, #00c3ff);
@@ -211,12 +462,10 @@ h1, h2, h3 {
   font-size: 1.05rem;
   transition: all 0.3s ease;
 }
-
 .contacto-form button:hover {
   transform: scale(1.03);
   opacity: 0.95;
 }
-
 .contacto-info {
   flex: 1;
   min-width: 280px;
@@ -228,55 +477,45 @@ h1, h2, h3 {
   box-shadow: 0 3px 20px rgba(1, 58, 66, 0.08);
   text-align: left;
 }
-
 .contacto-info h3 {
-  font-family: "Poppins", sans-serif;
   margin-bottom: 1.5rem;
   font-size: 1.4rem;
 }
-
 .info-item {
   display: flex;
   align-items: center;
   gap: 0.8rem;
   margin-bottom: 1.3rem;
 }
-
 .icon-inline {
   font-size: 1.4rem;
   color: #f6f3e8;
 }
-
 .contacto-info a {
   color: #f6f3e8;
   text-decoration: none;
   font-weight: 600;
 }
-
 .contacto-info a:hover {
   text-decoration: underline;
 }
-
 .divider {
   border: none;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   margin: 2rem 0;
 }
-
 .redes-titulo {
   font-weight: 600;
   margin-bottom: 1.5rem;
   color: #f6f3e8;
   text-align: center;
 }
-
 .social-icons {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
 }
-
 .social-icons a {
   display: flex;
   justify-content: center;
@@ -289,12 +528,12 @@ h1, h2, h3 {
   font-size: 22px;
   transition: all 0.3s ease;
 }
-
 .social-icons a:hover {
   background-color: #028aae;
   transform: scale(1.15);
 }
 
+/* ===================== FOOTER ===================== */
 .footer {
   padding: 2rem;
   background-color: var(--color-secondary);
@@ -302,13 +541,123 @@ h1, h2, h3 {
   text-align: center;
 }
 
-.footer .socials {
-  margin-top: 1rem;
+
+/* ===================== MODAL DE ENVÍO ===================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 86, 85, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease forwards;
+  backdrop-filter: blur(3px);
 }
 
-.footer .socials a {
+.modal-envio {
+  background: #ffffff;
+  padding: 2rem 3rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: 1.3rem;
+  animation: popIn 0.4s ease forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal-envio.success {
+  background: linear-gradient(135deg, #028aae, #00c3ff);
   color: white;
-  margin: 0 0.6rem;
-  text-decoration: none;
-  font-weight: 600;
+  animation: popInSuccess 0.5s ease forwards;
+}
+
+/* ===================== SPINNER ===================== */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(0, 195, 255, 0.3);
+  border-top-color: var(--color-primary, #028aae);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+/* ===================== ANIMACIONES ===================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes popInSuccess {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 1.5rem;
+  }
+  .hero-text {
+    max-width: 100%;
+  }
+  .hero-image {
+    width: 80%;
+    margin-top: 2rem;
+  }
+  .producto {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 5rem;
+  }
+  .producto img {
+    width: 100%;
+    height: auto;
+  }
+  .producto .info {
+    max-width: 100%;
+    text-align: center;
+  }
+  .valores {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header {
+    flex-direction: column;
+    padding: 1rem;
+  }
 }

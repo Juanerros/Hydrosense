@@ -1,46 +1,60 @@
-import React from 'react'
-import img_product1 from '../assets/product1.png'
+import React from 'react';
+import img_product1 from '../assets/product1.png';
+import img_product2 from '../assets/product1.png';
 
 export default function Productos() {
   return (
-    <div className="productos-container">
-      <h2>Nuestros Productos</h2>
+    <div className="productos-container fade-section fade-delay-1">
+      <h2 className="titulo-seccion fade-section fade-delay-1">Nuestros Productos</h2>
 
-      <div className="producto">
+      <p className="intro-productos fade-section fade-delay-2">
+        En <strong>HydroSense</strong> diseñamos sistemas inteligentes que combinan tecnología, eficiencia y diseño.  
+        Cada modelo está pensado para adaptarse a distintos espacios y necesidades de riego.
+      </p>
+
+      {/* PRODUCTO 1 */}
+      <div className="producto fade-section fade-delay-3">
         <img src={img_product1} alt="HydroSense Lite" />
         <div className="info">
-          <h3>HydroSense Lite</h3>
+          <h3 className="nombre-producto">HydroSense Lite</h3>
           <p>
-            Versión compacta ideal para hogares u oficinas. Ofrece un sistema
-            de riego automático de fácil instalación y control remoto mediante
-            app o PC.
+            Compacto, eficiente y pensado para el hogar o la oficina.  
+            El modelo Lite ofrece automatización completa del riego en un formato simple y accesible.
           </p>
           <ul>
-            <li>Riego automático programable</li>
-            <li>Fácil instalación</li>
-            <li>Control desde el celular o PC</li>
+            <li>Programación de riego inteligente con IA</li>
+            <li>Instalación rápida sin herramientas adicionales</li>
+            <li>Control remoto vía aplicación móvil</li>
+            <li>Consumo energético mínimo y modo eco</li>
           </ul>
-          <p className="precio">$186.000</p>
+          <p className="beneficio">
+            Ideal para espacios pequeños, macetas o interiores con plantas decorativas.  
+            Su tamaño compacto lo convierte en una opción moderna y práctica.
+          </p>
         </div>
       </div>
 
-      <div className="producto reverse">
-        <img src={img_product1} alt="HydroSense Pro" />
+      {/* PRODUCTO 2 */}
+      <div className="producto reverse fade-section fade-delay-4">
+        <img src={img_product2} alt="HydroSense Pro" />
         <div className="info">
-          <h3>HydroSense Pro</h3>
+          <h3 className="nombre-producto">HydroSense Pro</h3>
           <p>
-            La versión avanzada, diseñada para viveros o espacios amplios. Permite
-            controlar múltiples sectores de riego con alta precisión y monitoreo
-            remoto completo.
+            Nuestro sistema más avanzado, diseñado para jardines amplios, invernaderos o viveros profesionales.  
+            Ofrece un control total sobre múltiples zonas con monitoreo climático en tiempo real.
           </p>
           <ul>
-            <li>Gestión de múltiples zonas</li>
-            <li>Alertas inteligentes</li>
-            <li>Integración con sistemas de riego profesionales</li>
+            <li>Gestión de hasta 8 sectores independientes</li>
+            <li>Alertas por humedad y temperatura</li>
+            <li>Panel web y aplicación móvil sincronizados</li>
+            <li>Integración con asistentes inteligentes (Alexa / Google Home)</li>
           </ul>
-          <p className="precio">$280.000</p>
+          <p className="beneficio">
+            Perfecto para uso profesional o entornos con alto nivel de exigencia.  
+            Su diseño robusto y su precisión lo convierten en el corazón de cualquier sistema de riego automatizado.
+          </p>
         </div>
       </div>
     </div>
-  )
+  );
 }
