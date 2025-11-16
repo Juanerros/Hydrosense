@@ -94,7 +94,7 @@ export default function Contacto() {
 
           <hr className="divider" />
 
-          <p className="redes-titulo">Seguinos</p>
+          <p className="redes-titulo">Seguinos!</p>
 
           <div className="social-icons">
             <a

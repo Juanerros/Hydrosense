@@ -8,7 +8,7 @@ import AboutUs from "./components/AboutUs";
 export default function App() {
   const scrollTo = (id) => {
     const section = document.getElementById(id);
-    if(id == 'inicio') {
+    if (id == 'inicio') {
       window.scrollTo({ top: 0, behavior: 'smooth' })
       return
     }
@@ -30,10 +30,14 @@ export default function App() {
       .forEach((el) => observer.observe(el));
   }, []);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
+
   return (
     <div className="app">
       <header className="header fade-section fade-delay-1">
-        <div className="logo">HydroSense</div>
+        <div className="logo" onClick={() => scrollTo("inicio")}>HydroSense</div>
         <nav className="nav">
           <button onClick={() => scrollTo("inicio")}>Inicio</button>
           <button onClick={() => scrollTo("quienes-somos")}>
